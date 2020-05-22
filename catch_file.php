@@ -12,7 +12,7 @@ echo $_FILES['img']['name'];
 
 // if(!empty($_FILE['img']['tmp_name']) 
 
-if($_FILES['img']['error']==0){
+if($_FILES['img']['name']==0){
     
     switch($_FILES['img']['type']){
         case "image/jpeg";

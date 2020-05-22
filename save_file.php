@@ -24,6 +24,7 @@ if($_FILES['img']['error']==0){
         'filename'=>$name,
         'type'=>$_FILES['img']['type'],
         'note'=>$_POST['note'],
+        'album'=>$_POST['album'],
         'path'=>'img/'.$name,
     ];
     echo "<pre>";

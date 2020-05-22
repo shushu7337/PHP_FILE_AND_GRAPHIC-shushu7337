@@ -21,8 +21,10 @@ include_once "base.php";
 <h1 class="header">檔案管理練習</h1>
 <!----建立上傳檔案表單及相關的檔案資訊存入資料表機制----->
 <form action="save_file.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="img" id="img"><br>
-    <input type="text" name="note"><br>
+    檔案:<input type="file" name="img" id="img"><br>
+    說明:<input type="text" name="note"><br>
+    相簿:<input type="text" name="album"><br>
+    <!-- 可以用select 做 -->
     <input type="submit" value="send">
 </form>
 

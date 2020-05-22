@@ -11,7 +11,7 @@ function all($table,...$arg){
         foreach($arg[0] as $key => $value){
             $tmp[]=sprintf("`%s`='%s'",$key,$value);
         }
-        $sql=$sql . "where" . implode(" && ",$tmp);
+        $sql=$sql . " where " . implode(" && ",$tmp);
 
     }
     if(!empty($arg[1])){
