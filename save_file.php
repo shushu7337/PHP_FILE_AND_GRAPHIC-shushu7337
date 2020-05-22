@@ -22,7 +22,7 @@ if($_FILES['img']['error']==0){
     
     $data=[
         'filename'=>$name,
-        'type'=>$_FILES['upload']['type'],
+        'type'=>$_FILES['img']['type'],
         'note'=>$_POST['note'],
         'path'=>'img/'.$name,
     ];

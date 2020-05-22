@@ -40,3 +40,12 @@ table td{
     text-align: center;
     padding: 5px;
 }
+
+.btn{
+    display: inline-block;
+    border: solid 1px #999;
+    border-radius: 10px;
+    background:#eee;
+    padding: 5px 15px ;
+    margin: 0 5px;
+}

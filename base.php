@@ -28,13 +28,14 @@ function find($table,$arg){
         foreach($arg as $key => $value){
             $tmp[]=sprintf("`%s`='%s'",$key,$value);
         }
-        $sql=$sql . "where" . implode(" && ",$tmp);
-
+        $sql=$sql . " where " . implode(" && ",$tmp);
     }else{
-        $sql=$sql . "where id = '" .$arg. "'";
+        $sql=$sql . " where id ='".$arg."'";
     }
     return $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 }
+
+
 function nums($table,...$arg){
     global $pdo;
     $sql="select count(*) from $table";
@@ -50,6 +51,8 @@ function nums($table,...$arg){
     }
     return $pdo->query($sql)->fetchColumn();
 }
+
+
 function save($table,$arg){
     global $pdo;
 
@@ -60,14 +63,16 @@ function save($table,$arg){
             $tmp[]=sprintf("`%s`='%s'",$key,$value);
             }
         }
-        $sql="updat $table set " . implode(",",$tmp) . " where id ='".$arg['id']."'";
+        $sql="update $table set " . implode(",",$tmp) . " where id ='".$arg['id']."'";
     }else{
         // insert
-        $sql="insert into $table (`".implode("`,`",array_keys($arg))."`) values ('".implode("','",$arg)."')";
+        $sql="insert into $table (`".implode("`,`",array_keys($arg))."`) values('".implode("','",$arg)."')";
     }
     echo $sql;
     return $pdo->exec($sql);
 }
+
+
 function del($table,$arg){
     global $pdo;
     $sql="delete from $table";
@@ -76,22 +81,28 @@ function del($table,$arg){
         foreach($arg as $key => $value){
             $tmp[]=sprintf("`%s`='%s'",$key,$value);
         }
-        $sql=$sql . "where" . implode(" && ",$tmp);
+        $sql=$sql . " where " .implode(" && ",$tmp);
 
     }else{
-        $sql=$sql . "where id = '" .$arg. "'";
+        $sql=$sql . " where id ='".$arg."'";
     }
+    // echo $sql;
     // return 受影響的筆數資料
     return $pdo->exec($sql);
 
-
 }
+
+
+
+
 function q($sql){
     global $pdo;
     return $pdo->query($sql)->fetchAll();
 }
+
+
 function to($url){
-    header("location:",$url);
+    header("location:".$url);
 }
 
 
