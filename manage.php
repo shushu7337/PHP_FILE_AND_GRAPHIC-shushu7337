@@ -5,7 +5,7 @@
  * 3.取得檔案資訊並寫入資料表
  * 4.製作檔案管理功能頁面
  */
-
+include_once "base.php";
 
 ?>
 <!DOCTYPE html>
@@ -20,14 +20,40 @@
 <body>
 <h1 class="header">檔案管理練習</h1>
 <!----建立上傳檔案表單及相關的檔案資訊存入資料表機制----->
-
-
-
+<form action="save_file.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="img" id="img"><br>
+    <input type="text" name="note"><br>
+    <input type="submit" value="send">
+</form>
 
 
 <!----透過資料表來顯示檔案的資訊，並可對檔案執行更新或刪除的工作----->
 
-
+<table>
+<tr>
+    <td>圖片預覽</td>
+    <td>檔名</td>
+    <td>路徑</td>
+    <td>類別</td>
+    <td>說明</td>
+    <td>上傳時間</td>
+</tr>
+<?php
+$all=all('file_info');
+foreach($all as $row){
+?>
+<tr>
+    <td><img src='<?=$row['path'];?>' style="width:300px ;height:200px "></td>
+    <td><?=$row['filename'];?></td>
+    <td><?=$row['path'];?></td>
+    <td><?=$row['type'];?></td>
+    <td><?=$row['note'];?></td>
+    <td><?=$row['upload_time'];?></td>
+</tr>
+<?php
+}
+?>
+</table>
 
 
 </body>
