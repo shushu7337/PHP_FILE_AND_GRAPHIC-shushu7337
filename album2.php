@@ -15,7 +15,6 @@ img{
     border:2px solid #5ee;
     margin:10px;
     box-shadow:1px 1px 5px #990;
-    height:150px;
     vertical-align:middle;
     align-items:center;
     padding:0 10px;
@@ -41,7 +40,7 @@ if(!empty($_GET['album'])){
 $images=all("file_info",$album);
 
 foreach($images as $img){
-    echo "<div class='frame'><img src='".$img['path']."'></div>";
+    echo "<div class='frame'><img src='"."thumb/".$img['filename']."'></div>";
 }
 
 ?>

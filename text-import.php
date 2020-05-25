@@ -34,6 +34,7 @@
 <!----讀出匯入完成的資料----->
 <?php
 include_once "base.php";
+// PDO::FETCH_ASSOC讓資料只撈出一次
 $todo=all("todo_list","","",PDO::FETCH_ASSOC);
 
 ?>

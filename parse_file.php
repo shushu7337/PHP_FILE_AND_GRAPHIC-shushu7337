@@ -20,7 +20,7 @@ if(!empty($_FILES['doc']['tmp_name'])){
         $file=fopen($path,"r+");
         
         // 略過第一行
-        $txt=fgets($file);
+        // $txt=fgets($file);
         // 宣告num從一開始
         $num=1;
         // 如果沒有到檔案結尾的話
@@ -29,14 +29,14 @@ if(!empty($_FILES['doc']['tmp_name'])){
             $tmp=explode(",",$txt);
             if(count($tmp)==4){
 
-                print_r($tmp);
+                // print_r($tmp);
                 $content['subject']=$tmp[0];
                 $content['description']=$tmp[1];
                 $content['create_date']=$tmp[2];
                 $content['due_date']=$tmp[3];
                 save("todo_list",$content);
                 // 自訂變數讓它顯示出來，要不然他是不會有反應的
-                echo "已儲存".$num."筆資料";
+                // echo "已儲存".$num."筆資料";
                 $num++;
             }
         }
